@@ -34,7 +34,7 @@ const taskSchema = new mongoose.Schema({
 const Task = mongoose.model("Task", taskSchema);
 
 // Routes
-app.get("/hi", (req, res) => {
+app.get("/", (req, res) => {
   return res.send("hi");
 });
 app.get("/tasks", async (req, res) => {
