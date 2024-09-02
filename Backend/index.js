@@ -6,18 +6,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-// mongoose.connect("mongodb://localhost:27017/todoapp", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 
-//mongoose.connect('mongodb+srv://krishjain2902@admin:krishjain2902@<cluster-url>/todoapp?retryWrites=true&w=majority&appName=<appname>', options);
+
+
 mongoose
   .connect(
     "mongodb+srv://krishjain2902:Krish29@todoapp.xuud3.mongodb.net/todoapp?retryWrites=true&w=majority"
   )
-  //.connect("mongodb://127.0.0.1:27017/todoapp")
+
 
   .then(() => {
     console.log("Connected to MongoDB");
