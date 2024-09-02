@@ -14,7 +14,7 @@ export default function App() {
   // Fetch tasks from the backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/tasks")
+      .get("https://todo-app-lime-ten.vercel.app/tasks")
       .then((response) => setItems(response.data))
       .catch((error) => console.error("Error fetching tasks:", error));
   }, []);
@@ -24,7 +24,7 @@ export default function App() {
     if (inputList.trim() !== "") {
       if (isEditing) {
         axios
-          .put(`http://localhost:5000/tasks/${editId}`, { text: inputList })
+          .put(`https://todo-app-lime-ten.vercel.app/tasks/${editId}`, { text: inputList })
           .then((response) => {
             setItems((items) =>
               items.map((item) => (item._id === editId ? response.data : item))
@@ -36,7 +36,7 @@ export default function App() {
           .catch((error) => console.error("Error updating task:", error));
       } else {
         axios
-          .post("http://localhost:5000/tasks", { text: inputList })
+          .post("https://todo-app-lime-ten.vercel.app/tasks", { text: inputList })
           .then((response) => {
             setItems((oldItems) => [...oldItems, response.data]);
             setInput("");
@@ -57,7 +57,7 @@ export default function App() {
   // Delete a task
   const deleteItems = (id) => {
     axios
-      .delete(`http://localhost:5000/tasks/${id}`)
+      .delete(`https://todo-app-lime-ten.vercel.app/tasks/${id}`)
       .then(() => {
         setItems((oldItems) => oldItems.filter((item) => item._id !== id));
       })
